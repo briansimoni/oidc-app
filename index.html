@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Open ID Connect Demo App</h1>
+      <p class="lead">This is a Golang app that authenticates users through OIDC.</p>
+    </div>
+    <h2>Good job. You logged in.</h2>
+
+    <p><a href="https://jwt.io/">https://jwt.io/</a> for more information on JSON Web Tokens</p>
+    <br />
+    <h4>Response from the code exchange at <strong>/as/token.oauth2</strong></h4>
+    <code>
+      <pre>{{.Response}}</pre>
+    </code>
+    <h4>Parsed ID Token</h4>
+    <code>
+      <pre>{{.IDToken}}</pre>
+    </code>
+    <h4>User Info Response</h4>
+    <code>
+      <pre>{{.UserInfo}}</pre>
+    </code>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
