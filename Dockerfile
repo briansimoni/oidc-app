@@ -1,11 +1,19 @@
-FROM golang
+FROM golang:1.12 as builder
 
-ADD . /go/src/github.build.ge.com
+COPY . /app
 
-WORKDIR /go/src/github.build.ge.com
+WORKDIR /app
 
-RUN go build -o oidc-app
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -mod=vendor -o oidc-app .
 
-EXPOSE 4321
+FROM alpine:latest  
 
-CMD ./oidc-app
+RUN apk --no-cache add ca-certificates && apk --no-cache add curl
+
+WORKDIR /app/
+
+COPY --from=builder /app/oidc-app .
+COPY --from=builder /app/index.html .
+COPY --from=builder /app/static/ ./static/
+
+CMD ["/app/oidc-app"]
